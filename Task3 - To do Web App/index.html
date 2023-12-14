@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Advanced To-Do List</title>
+  </head>
+  <body>
+    <header>To-Do List Web App</header>
+    <div id="app-container">
+      <div id="input-box">
+        <input type="text" id="task-name" placeholder="Task Name" />
+        <textarea
+          id="task-description"
+          placeholder="Task Description"
+        ></textarea>
+        <button onclick="addTask()">Add Task</button>
+      </div>
+      <div id="task-box">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="task-list"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      function addTask() {
+        const taskName = document.getElementById("task-name").value;
+        const taskDescription =
+          document.getElementById("task-description").value;
+
+        if (taskName && taskDescription) {
+          const taskList = document.getElementById("task-list");
+          const newRow = taskList.insertRow();
+
+          const titleCell = newRow.insertCell(0);
+          titleCell.innerText = taskName;
+
+          const descriptionCell = newRow.insertCell(1);
+          descriptionCell.innerText = taskDescription;
+
+          const updateCell = newRow.insertCell(2);
+          updateCell.innerHTML =
+            '<span class="update-icon" onclick="updateTask(this.parentNode.parentNode)">🔄</span>';
+
+          const deleteCell = newRow.insertCell(3);
+          deleteCell.innerHTML =
+            '<span class="delete-icon" onclick="deleteTask(this.parentNode.parentNode)">🗑️</span>';
+
+          // Clear input fields
+          document.getElementById("task-name").value = "";
+          document.getElementById("task-description").value = "";
+        }
+      }
+
+      function deleteTask(row) {
+        if (confirm("Are you sure you want to delete this task?")) {
+          row.parentNode.removeChild(row);
+        }
+      }
+
+      function updateTask(row) {
+        const newTitle = prompt("Enter the new title:", row.cells[0].innerText);
+        const newDescription = prompt("Enter the new description:", row.cells[1].innerText);
+
+        if (newTitle !== null && newDescription !== null) {
+          row.cells[0].innerText = newTitle;
+          row.cells[1].innerText = newDescription;
+        }
+      }
+    </script>
+  </body>
+</html>

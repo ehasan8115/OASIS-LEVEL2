@@ -1,0 +1,102 @@
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4;
+  background-image: url(background.jpg);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  width: 90%;
+  height: 50px; /* Adjust the height as needed */
+  border-radius: 5px;
+  background-color: #4caf50;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  font-size: x-large;
+  font-weight: bold;
+}
+#app-container {
+  display: flex;
+  width: 90%;
+  max-width: 90%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  /* background-color: #fff; */
+}
+
+#input-box,
+#task-box {
+  flex: 1;
+  padding: 12px;
+}
+
+#input-box {
+  background-color: #4caf50;
+  border-radius: 5px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 25%;
+  height: 350px;
+}
+
+#input-box input,
+#input-box textarea,
+#input-box button {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+}
+
+#input-box textarea {
+  height: 18rem;
+}
+
+#input-box button {
+  background-color: #fff;
+  color: #4caf50;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#task-box {
+  overflow-y: auto;
+  padding: 0 0 0 60px;
+}
+
+#task-list {
+  background-color: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-top: 10px; */
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: #e74c3c;
+}
